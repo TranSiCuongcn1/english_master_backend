@@ -91,7 +91,7 @@ public class JwtService {
                 //1. Token có đúng định dạng gồm 3 phần (Header.Payload.Signature) không?
                 //2. Chữ ký (Signature) có hợp lệ không?
                 //3. Token có hết hạn không?
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 //if token dung thi lay payload va tra ve Claims.
                 .getBody();
     }
