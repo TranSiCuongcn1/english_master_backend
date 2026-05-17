@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import repository.UserRepository;
 
 // Annotation @Configuration đánh dấu class này chứa các thông số khởi tạo ApplicationContext.
 // Các method mang @Bean sẽ được Spring container trigger để tạo object (IoC) trong quá trình boot ứng dụng.
