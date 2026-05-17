@@ -27,3 +27,8 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+error.log
+spring_boot_log.txt
+target/
+.idea/
