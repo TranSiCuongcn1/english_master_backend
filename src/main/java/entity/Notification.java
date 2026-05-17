@@ -4,8 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
-
-import java.time.ZonedDateTime;
+import org.hibernate.annotations.CreationTimestamp;
+import java.time.OffsetDateTime;
 import java.util.UUID;
 
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
@@ -26,12 +26,12 @@ public class Notification {
     private String message;
 
     @Enumerated(EnumType.STRING)
-    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private NotifType type;
 
     @Column(name = "is_read")
     private Boolean isRead;
 
-    @Column(name = "created_at", insertable = false, updatable = false)
-    private ZonedDateTime createdAt;
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private OffsetDateTime createdAt;
 }

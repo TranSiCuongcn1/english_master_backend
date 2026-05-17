@@ -19,8 +19,8 @@ public class QuestionOption {
     @JoinColumn(name = "question_id", nullable = false)
     private Question question;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String text;
+    @Column(name = "option_text", nullable = false, columnDefinition = "TEXT")
+    private String optionText;
 
     @Column(name = "order_index")
     private Integer orderIndex;

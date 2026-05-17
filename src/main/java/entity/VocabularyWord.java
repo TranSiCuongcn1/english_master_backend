@@ -30,4 +30,13 @@ public class VocabularyWord {
 
     @Column(columnDefinition = "TEXT")
     private String example;
+
+    @Column(length = 200)
+    private String phonetics;
+
+    @Column(name = "audio_url", columnDefinition = "TEXT")
+    private String audioUrl;
+
+    @Column(name = "order_index")
+    private Integer orderIndex = 0;
 }

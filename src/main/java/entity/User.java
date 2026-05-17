@@ -7,7 +7,9 @@ import org.hibernate.type.SqlTypes;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import java.time.ZonedDateTime;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import java.time.OffsetDateTime;
 import java.util.*;
 
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
@@ -27,7 +29,6 @@ public class User implements UserDetails {
     private String password; // Map cột password_hash
 
     @Enumerated(EnumType.STRING)
-    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
     private UserRole role;
 
     @Column(name = "avatar_url", columnDefinition = "TEXT")
@@ -36,15 +37,17 @@ public class User implements UserDetails {
     @Column(name = "daily_goal_target")
     private Integer dailyGoalTarget;
 
-    @Column(name = "created_at", insertable = false, updatable = false)
-    private ZonedDateTime createdAt;
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private OffsetDateTime createdAt;
 
-    @Column(name = "updated_at", insertable = false)
-    private ZonedDateTime updatedAt;
+    @UpdateTimestamp
+    @Column(name = "updated_at")
+    private OffsetDateTime updatedAt;
 
     // Mapping sang các bảng con nếu cần thiết: TestResults, Notifications, Flashcards...
 
-    @Override public Collection<? extends GrantedAuthority> getAuthorities() { return List.of(new SimpleGrantedAuthority(role.name())); }
+    @Override public Collection<? extends GrantedAuthority> getAuthorities() { return List.of(new SimpleGrantedAuthority(role.name().toUpperCase())); }
     @Override public String getUsername() { return email; }
     @Override public boolean isAccountNonExpired() { return true; }
     @Override public boolean isAccountNonLocked() { return true; }

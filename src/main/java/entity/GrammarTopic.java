@@ -29,11 +29,10 @@ public class GrammarTopic {
     @OneToMany(mappedBy = "grammarTopic", cascade = CascadeType.ALL)
     private List<GrammarExample> examples = new ArrayList<>();
 
+    @Column(name = "order_index")
+    private Integer orderIndex = 0;
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private OffsetDateTime createdAt;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private OffsetDateTime updatedAt;
 }

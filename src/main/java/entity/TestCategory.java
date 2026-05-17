@@ -5,5 +5,7 @@ public enum TestCategory {
     IELTS,
     HSK,
     JLPT,
-    General
+    GENERAL,
+    GRAMMAR,
+    VOCABULARY
 }

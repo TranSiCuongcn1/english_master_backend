@@ -26,14 +26,13 @@ public class VocabularyTopic {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column(name = "icon_name", length = 50)
+    private String iconName;
+
     @OneToMany(mappedBy = "topic", cascade = CascadeType.ALL)
     private List<VocabularyWord> words = new ArrayList<>();
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private OffsetDateTime createdAt;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private OffsetDateTime updatedAt;
 }

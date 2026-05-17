@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class Question {
     @JoinColumn(name = "reading_id")
     private ReadingPassage readingPassage;
 
+    @Column(name = "type")
     @Enumerated(EnumType.STRING)
     private QuestionType type = QuestionType.MULTIPLE_CHOICE;
 

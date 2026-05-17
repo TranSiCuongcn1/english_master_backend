@@ -17,10 +17,10 @@ public class FlashCard {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @Column(nullable = false, columnDefinition = "TEXT", name = "front_text")
+    @Column(nullable = false, columnDefinition = "TEXT", name = "front")
     private String front;
 
-    @Column(nullable = false, columnDefinition = "TEXT", name = "back_text")
+    @Column(nullable = false, columnDefinition = "TEXT", name = "back")
     private String back;
 
     @Column(columnDefinition = "TEXT")
@@ -28,6 +28,9 @@ public class FlashCard {
 
     @Column(length = 100)
     private String category;
+
+    @Column(length = 50)
+    private String level;
 
     @Column(name = "is_system", nullable = false)
     private Boolean isSystem = false;

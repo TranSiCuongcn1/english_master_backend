@@ -23,7 +23,7 @@ public class ReadingPassage {
     @Column(nullable = false, length = 255)
     private String title;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(name = "content", nullable = true, columnDefinition = "TEXT")
     private String text;
 
     @Column(length = 50)
@@ -38,8 +38,4 @@ public class ReadingPassage {
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private OffsetDateTime createdAt;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private OffsetDateTime updatedAt;
 }

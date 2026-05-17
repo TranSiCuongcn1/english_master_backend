@@ -19,6 +19,12 @@ public class GrammarExample {
     @JoinColumn(name = "grammar_topic_id", nullable = false)
     private GrammarTopic grammarTopic;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
+    @Column(name = "example_text", nullable = false, columnDefinition = "TEXT")
     private String exampleText;
+
+    @Column(columnDefinition = "TEXT")
+    private String translation;
+
+    @Column(name = "order_index")
+    private Integer orderIndex = 0;
 }
